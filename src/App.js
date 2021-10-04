@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import './App.css';
-
 import Homepage from "./components/Homepage";
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-      fetch(`https://content.guardianapis.com/search?show-fields=trailText%2Cthumbnail&q=haiti&api-key=${key}`)
+      fetch(`https://content.guardianapis.com/search?show-fields=trailText%2Cthumbnail&page-size=50&q=haiti&api-key=${key}`)
       .then(res => res.json())
       //.then(res => console.log('app.js', res.response.results))
       .then(data => setNewsData(data.response.results))
