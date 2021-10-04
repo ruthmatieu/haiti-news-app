@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+
 import './App.css';
 
+import Homepage from "./components/Homepage";
+
 function App() {
+  const key = 'c52e1742-6512-4f0d-8c25-fbd9b39e36a8'
+  const [newsData, setNewsData] = useState([]);
+
+  useEffect(() => {
+      fetch(`https://content.guardianapis.com/search?show-fields=trailText%2Cthumbnail&q=haiti&api-key=${key}`)
+      .then(res => res.json())
+      //.then(res => console.log('app.js', res.response.results))
+      .then(data => setNewsData(data.response.results))
+      .catch(err => console.log(err))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Homepage data={newsData}/>
     </div>
   );
 }
