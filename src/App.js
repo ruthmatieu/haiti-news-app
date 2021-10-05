@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import { Route, Switch } from 'react-router-dom';
 import Homepage from "./components/Homepage";
+import Post from "./components/Post";
 
 function App() {
   const key = 'c52e1742-6512-4f0d-8c25-fbd9b39e36a8'
@@ -16,7 +17,14 @@ function App() {
 
   return (
     <div className="App">
-      <Homepage data={newsData}/>
+      <Switch>
+        <Route exact path='/'>
+          <Homepage data={newsData} />
+        </Route>
+        <Route path='/article/:id'>
+          <Post data={newsData} />
+        </Route>
+      </Switch>
     </div>
   );
 }

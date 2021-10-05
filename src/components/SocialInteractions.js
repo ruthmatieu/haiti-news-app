@@ -33,15 +33,15 @@ function SocialInteractions() {
     <div style={{display: 'flex'}}>
         <div style={{display: 'flex'}}>
             <AiFillLike className="like-btn" onClick={likeHandler}/>
-            <p>{like}</p>
+            <p style={{margin: '0'}}>{like}</p>
         </div>
         <div style={{display: 'flex'}}>
             <AiFillDislike className="like-btn" onClick={dislikeHandler}/>
-            <p>{dislike}</p>
+            <p style={{margin: '0'}}>{dislike}</p>
         </div>
         <div style={{display: 'flex'}}>
             <FcLike className="love-btn" onClick={loveHandler}/>
-            <p>{love}</p>
+            <p style={{margin: '0'}}>{love}</p>
         </div>
     </div>
   );
