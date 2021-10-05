@@ -5,7 +5,8 @@ import breakpoint from '../breakpoints';
 import SocialInteractions from './SocialInteractions';
 
 function NewsContainer({ data }) {
-    console.log('NewsContainer', data)
+    //console.log('NewsContainer', data)
+    
   return (
     <Container>
       {data.map(item=> (
@@ -16,6 +17,7 @@ function NewsContainer({ data }) {
                 <p>{item.fields.trailText}</p>
                 <div style={{display: 'flex'}}>
                     <p>{item.webPublicationDate}</p>
+                    <p>{}</p>
                     <SocialInteractions/>
                 </div>
             </div>
