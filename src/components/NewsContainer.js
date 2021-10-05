@@ -20,12 +20,13 @@ function NewsContainer({ data, loading }) {
   return (
     <Container>
         {data.map(item=> (
-            <Link to={`/article/${item.id}`} style={{textDecoration: 'none', color: 'black'}} key={item.id}>
+            <Link to={`/${item.webUrl}`} style={{textDecoration: 'none', color: 'black'}} key={item.id}>
                 <div className="wrapper">
                     <img src={item.fields.thumbnail} alt="" style={{width: '100%'}}/>
                     <div>
                         <h4>{item.webTitle}</h4>
                         <p>{item.fields.trailText}</p>
+                        <p>id: {item.id}</p>
                         <div style={{display: 'flex'}}>
                             <p>{formatDate(item.webPublicationDate)}</p>
                             <SocialInteractions/>

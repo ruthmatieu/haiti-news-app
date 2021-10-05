@@ -1,21 +1,18 @@
 import React from 'react';
 
-const Pagination = (props) => {
+const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     const pageNumbers = [];
     
-    for (let i = 1; i <= Math.ceil(props.totalPosts / props.postsPerPage); i++){
+    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++){
         pageNumbers.push(i);
-        console.log(pageNumbers)
     }
-    console.log('pg postperpage', props.postsPerPage)
-    console.log('pg totalpost', props.totalPosts)
 
     return (
         <nav>
             <ul style={{display: 'flex', listStyle: 'none'}}>
                 {pageNumbers.map(number => (
                     <li key={number}>
-                        <a onClick={() => props.paginate(number)} href="#">
+                        <a onClick={() => paginate(number)} href="#">
                             {number}
                         </a>
                     </li>

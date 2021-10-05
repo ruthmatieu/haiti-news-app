@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom';
 import Homepage from "./components/Homepage";
 import Post from "./components/Post";
-import Pagination from "./components/Pagination";
-import NewsContainer from "./components/NewsContainer";
-import Navigation from "./components/Navigation";
 
-function App() {
-  const key = 'c52e1742-6512-4f0d-8c25-fbd9b39e36a8'
+const App = () => {
+  document.title = 'All News Ayiti'
+  const key = 'c52e1742-6512-4f0d-8c25-fbd9b39e36a8';
   const [ posts, setPosts ] = useState([]);
   //current page
   const [ currentPage, setCurrentPage ] = useState(1);
@@ -18,7 +16,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      await fetch(`https://content.guardianapis.com/search?show-fields=trailText%2Cthumbnail&order-by=newest&page-size=50&q=haiti&api-key=${key}`)
+      await fetch(`https://content.guardianapis.com/search?show-fields=trailText%2Cthumbnail&order-by=newest&page-size=100&q=haiti&api-key=${key}`)
       .then(res => res.json())
       .then(data => setPosts(data.response.results))
       .catch(err => console.log(err))
@@ -34,20 +32,13 @@ function App() {
   // changes page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  console.log('paginate', paginate)
-  console.log('postperpage', postsPerPage)
-  console.log('totalpost', posts.length)
-
   return (
     <div>
       <Switch>
         <Route exact path='/'>
           <Homepage data={currentPosts} postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/> 
         </Route>
-        <Route path='/article/:id'>
-          <Post data={ currentPosts } />
-        </Route>
-        
+        <Route path='/:id' component={Post}/>
       </Switch>
     </div>
   );
