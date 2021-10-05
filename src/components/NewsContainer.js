@@ -20,16 +20,15 @@ function NewsContainer({ data, loading }) {
   return (
     <Container>
         {data.map(item=> (
-            <Link to={`/${item.webUrl}`} style={{textDecoration: 'none', color: 'black'}} key={item.id}>
+            <Link to={`/article/${item.webTitle}`} style={{textDecoration: 'none', color: 'black'}} key={item.id}>
                 <div className="wrapper">
                     <img src={item.fields.thumbnail} alt="" style={{width: '100%'}}/>
                     <div>
                         <h4>{item.webTitle}</h4>
-                        <p>{item.fields.trailText}</p>
-                        <p>id: {item.id}</p>
-                        <div style={{display: 'flex'}}>
-                            <p>{formatDate(item.webPublicationDate)}</p>
-                            <SocialInteractions/>
+                        <p className='trail-text'>{item.fields.trailText}...</p>
+                        <div className='interaction-date'>
+                            <p className='formatted-date'>Published {formatDate(item.webPublicationDate)}</p>
+                            {/* <SocialInteractions/> */}
                         </div>
                     </div>
                 </div>
@@ -42,7 +41,7 @@ function NewsContainer({ data, loading }) {
 export default NewsContainer;
 
 const Container = styled.div`
-    width: 85%;
+    width: 100%;
     overflow: hidden;
     margin: 0 auto;
     max-width: 1680px;
@@ -53,10 +52,33 @@ const Container = styled.div`
     .wrapper {
         max-width: 30rem;
         margin: 0 10px;
+        padding-bottom: 50px;
     }
 
     .wrapper h4 {
         text-transform: capitalize;
+    }
+
+    h4 {
+        font-size: 1rem;
+        margin: 0;
+        padding-top: 1rem;
+    }
+
+    .trail-text {
+        font-size: 0.85rem;
+        margin: 0;
+        padding-top: 1rem;
+    }
+
+    .interaction-date {
+        display: flex;
+    }
+
+    .formatted-date {
+        color: #707070;
+        font-size: 0.7rem;
+        padding-right: 1rem;
     }
 
     @media only screen and ${breakpoint.device.sm} {

@@ -3,6 +3,9 @@ import { AiFillLike } from 'react-icons/ai';
 import { AiFillDislike } from 'react-icons/ai';
 import { FcLike } from 'react-icons/fc';
 
+import styled from 'styled-components';
+import breakpoint from '../breakpoints';
+
 function SocialInteractions() {
     //console.log('homepage', data)
     const [like, setLike] = useState(0);
@@ -30,21 +33,37 @@ function SocialInteractions() {
     }
 
   return (
-    <div style={{display: 'flex'}}>
-        <div style={{display: 'flex'}}>
-            <AiFillLike className="like-btn" onClick={likeHandler}/>
-            <p style={{margin: '0'}}>{like}</p>
+    <Container>
+        <div className='like'>
+            <div style={{display: 'flex'}}>
+                <AiFillLike className="like-btn" onClick={likeHandler}/>
+                <p style={{margin: '0'}}>{like}</p>
+            </div>
+            
         </div>
-        <div style={{display: 'flex'}}>
-            <AiFillDislike className="like-btn" onClick={dislikeHandler}/>
-            <p style={{margin: '0'}}>{dislike}</p>
+        <div className='like'>
+            <div style={{display: 'flex'}}>
+                <AiFillDislike className="like-btn" onClick={dislikeHandler}/>
+                <p style={{margin: '0'}}>{dislike}</p>
+            </div>
         </div>
-        <div style={{display: 'flex'}}>
-            <FcLike className="love-btn" onClick={loveHandler}/>
-            <p style={{margin: '0'}}>{love}</p>
+        <div className='like'>
+            <div style={{display: 'flex'}}>
+                <FcLike className="love-btn" onClick={loveHandler}/>
+                <p style={{margin: '0'}}>{love}</p>
+            </div>
         </div>
-    </div>
+    </Container>
   );
 }
 
 export default SocialInteractions;
+
+const Container = styled.div`
+    display: flex;
+
+    .like {
+        display: grid;
+        place-items: center;
+    }
+`

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import logo from "./logo.svg";
 import { currentDay, currentMonth } from './Date';
 
@@ -6,7 +7,7 @@ import styled from 'styled-components';
 import breakpoint from '../breakpoints';
 
 
-function Navigation() {
+const Navigation = () => {
   const today = new Date();
   const day = today.getUTCDay()+1;
   const month = today.getMonth()+1;
