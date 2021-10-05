@@ -16,8 +16,9 @@ function Navigation() {
   return (
     <Container>
       <div>
-        <p>Today's Paper</p>
-        <p>{currentDay(day)}, {currentMonth(month)} {date}, {year} </p>
+        <p style={{fontWeight: '900', fontSize: '0.7rem'}}>{currentDay(day)}, {currentMonth(month)} {date}, {year}</p>
+        <p style={{fontSize: '0.7rem'}}>Today's Paper</p>
+
       </div>
         <img src={logo} alt="logo"/>
         <p>current weater</p>

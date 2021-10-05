@@ -5,7 +5,7 @@ const Post = ({ data }) => {
   const params = useParams();
   const news = data.filter(item => `${item.id}` === params.id);
 
-  console.log('post pros', news)
+  console.log('post pros', data)
 
   return (
     <div>

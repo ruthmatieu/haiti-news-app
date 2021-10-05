@@ -5,19 +5,23 @@ import breakpoint from '../breakpoints';
 
 import SocialInteractions from './SocialInteractions';
 
-function NewsContainer({ data }) {
-    console.log(data)
+
+function NewsContainer({ data, loading }) {
+    //console.log(loading)
     const formatDate = (date) => {
         const newDdate = new Date(date);
         const UTCDate = (newDdate.getMonth()+1) + '/'+ newDdate.getDate() + '/' + newDdate.getFullYear();
         return UTCDate
     }
     
+    // if (loading) {
+    //     return <h2>Loading...</h2>
+    // }
   return (
     <Container>
         {data.map(item=> (
-            <Link to={`/article/${item.id}`}>
-                <div key={item.id} className="wrapper">
+            <Link to={`/article/${item.id}`} style={{textDecoration: 'none', color: 'black'}} key={item.id}>
+                <div className="wrapper">
                     <img src={item.fields.thumbnail} alt="" style={{width: '100%'}}/>
                     <div>
                         <h4>{item.webTitle}</h4>
