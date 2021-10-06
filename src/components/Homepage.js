@@ -1,17 +1,19 @@
 import React from "react";
-import NewsContainer from "./NewsContainer";
-import Navigation from "./Navigation";
+import PostsList from "./PostsList";
+import Navigation from "./navigation/Navigation";
+import Search from "./navigation/Search";
 import Pagination from "./Pagination";
 
 function Homepage({ data, postsPerPage, totalPosts, paginate }) {
     
   return (
     <div>
-        <Navigation/>
-        <NewsContainer
+        <Navigation />
+        {/* <Search /> */}
+        <PostsList
             data={data}
         />
-        <Pagination postsPerPage={postsPerPage} totalPosts={totalPosts} paginate={paginate}/>
+        <Pagination postsPerPage={postsPerPage} totalPosts={totalPosts} paginate={paginate} />
     </div>
   );
 }

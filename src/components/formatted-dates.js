@@ -43,3 +43,9 @@ export const currentMonth = (month) => {
         return 'December'
     }
 }
+
+export const publicationDate = (date) => {
+    const newDdate = new Date(date);
+    const UTCDate = (newDdate.getMonth()+1) + '/'+ newDdate.getDate() + '/' + newDdate.getFullYear();
+    return UTCDate
+}

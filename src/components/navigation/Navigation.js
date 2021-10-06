@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import logo from "./logo.svg";
-import { currentDay, currentMonth } from './Date';
+import logo from "../logo.svg";
+import { currentDay, currentMonth } from '../formatted-dates';
 
 import styled from 'styled-components';
-import breakpoint from '../breakpoints';
+import breakpoint from '../../breakpoints';
 
 
 const Navigation = () => {
@@ -23,9 +23,10 @@ const Navigation = () => {
         </div>
       </div>
         <img src={logo} alt="logo"/>
-        <div className='weather'>
-          <p>current weater</p>
+        <div>
+          <Link><button className='login-btn'>Login</button></Link>
         </div>
+        
     </Container>
   );
 }
@@ -57,5 +58,15 @@ const Container = styled.nav`
 
     .date-today {
       font-weight: 900;
+    }
+
+    .login-btn {
+      background: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 30px;
+      margin-top: 11px;
+      -webkit-box-shadow: 1px 4px 15px 3px #E0E0E0; 
+      box-shadow: 1px 4px 15px 3px #E0E0E0;
     }
 `

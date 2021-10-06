@@ -3,17 +3,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import breakpoint from '../breakpoints';
 
+import { publicationDate } from './formatted-dates';
+
 import SocialInteractions from './SocialInteractions';
 
 
-function NewsContainer({ data, loading }) {
+function PostsList({ data, loading }) {
     //console.log(loading)
-    const formatDate = (date) => {
-        const newDdate = new Date(date);
-        const UTCDate = (newDdate.getMonth()+1) + '/'+ newDdate.getDate() + '/' + newDdate.getFullYear();
-        return UTCDate
-    }
-    
+
     // if (loading) {
     //     return <h2>Loading...</h2>
     // }
@@ -27,7 +24,7 @@ function NewsContainer({ data, loading }) {
                         <h4>{item.webTitle}</h4>
                         <p className='trail-text'>{item.fields.trailText}...</p>
                         <div className='interaction-date'>
-                            <p className='formatted-date'>Published {formatDate(item.webPublicationDate)}</p>
+                            <p className='formatted-date'>Published {publicationDate(item.webPublicationDate)}</p>
                             {/* <SocialInteractions/> */}
                         </div>
                     </div>
@@ -38,7 +35,7 @@ function NewsContainer({ data, loading }) {
   );
 }
 
-export default NewsContainer;
+export default PostsList;
 
 const Container = styled.div`
     width: 100%;

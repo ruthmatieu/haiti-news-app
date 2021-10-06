@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom';
 import Homepage from "./components/Homepage";
-import NewsContainer from './components/NewsContainer';
+import PostsList from './components/PostsList';
 import Post from "./components/Post";
 
 const App = () => {
@@ -40,7 +40,7 @@ const App = () => {
           <Homepage data={currentPosts} postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/> 
         </Route>
         <Route exact path='/article/'>
-          <NewsContainer data={currentPosts}/>
+          <PostsList data={currentPosts}/>
         </Route>
         <Route path='/article/:id'>
           <Post data={currentPosts}/>
