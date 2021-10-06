@@ -11,7 +11,7 @@ const App = () => {
   //current page
   const [ currentPage, setCurrentPage ] = useState(1);
   //limit page to 12 posts per page
-  const [ postsPerPage ] = useState(12);
+  const [ postsPerPage ] = useState(9);
   const [ loading, setLoading ] = useState(false);
 
   useEffect(() => {

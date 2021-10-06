@@ -19,7 +19,7 @@ function PostsList({ data, loading }) {
         {data.map(item=> (
             <Link to={`/article/${item.webTitle}`} style={{textDecoration: 'none', color: 'black'}} key={item.id}>
                 <div className="wrapper">
-                    <img src={item.fields.thumbnail} alt="" style={{width: '100%'}}/>
+                    <img className='thumbnail' src={item.fields.thumbnail} alt=""/>
                     <div>
                         <h4>{item.webTitle}</h4>
                         <p className='trail-text'>{item.fields.trailText}...</p>
@@ -38,10 +38,7 @@ function PostsList({ data, loading }) {
 export default PostsList;
 
 const Container = styled.div`
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-    max-width: 1680px;
+    
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -50,6 +47,10 @@ const Container = styled.div`
         max-width: 30rem;
         margin: 0 10px;
         padding-bottom: 50px;
+    }
+
+    .thumbnail {
+        width: 100%;
     }
 
     .wrapper h4 {
@@ -79,6 +80,18 @@ const Container = styled.div`
     }
 
     @media only screen and ${breakpoint.device.sm} {
-        width: 100%;
+        //background: pink;
+    }
+    
+    @media only screen and ${breakpoint.device.md} {
+        //background: orange;
+    }
+    
+    @media only screen and ${breakpoint.device.lg} {
+        //background: cyan;
+    }
+    
+    @media only screen and ${breakpoint.device.xl} {
+        //background: yellow;
     }
 `

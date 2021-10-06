@@ -2,7 +2,8 @@ const size = {
     sm: '300px',
     md: '640px',
     lg: '1024px',
-    xl: '1200px'
+    xl: '1200px',
+    xxl: '1500px'
 }
 
 const device = {
@@ -10,6 +11,9 @@ const device = {
     md: `(min-width: ${size.md})`,
     lg: `(min-width: ${size.lg})`,
     xl: `(min-width: ${size.xl})`,
+    xxl: `(min-width: ${size.xxl})`,
 }
 
 export default {size, device};
+
+// everything below lg is mobile
